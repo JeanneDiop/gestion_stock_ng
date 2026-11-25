@@ -1,0 +1,164 @@
+
+<!-- En-tête -->
+<div class="header-table">
+    <div class="titre">
+        <h1>Liste des utilisateurs</h1>
+    </div>
+
+    <div class="actions-header">
+        <a routerLink="/ajouter-user" class="btn-ajouter">
+            <i class="fas fa-plus"></i>
+            Ajouter utilisateur
+        </a>
+    </div>
+</div>
+
+<!-- Tableau -->
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Genre</th>
+                <th>Adresse</th>
+                <th>Rôle</th>
+                <th>État</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (users().length > 0) {
+                @for (user of users(); track user.id) {
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.telephone || '-' }}</td>
+                        <td>{{ user.email || '-' }}</td>
+                        <td>{{ user.username || '-' }}</td>
+                        <td>{{ user.genre }}</td>
+                        <td>{{ user.adresse || '-' }}</td>
+                        <td>{{ user.role_nom }}</td>
+
+                        <td>
+                            <span class="badge"
+                                [class.actif]="user.etat === 'actif'"
+                                [class.inactif]="user.etat === 'inactif'">
+                                {{ user.etat || '-' }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="actions">
+                                <!-- Voir détails -->
+                                <a class="icon-btn detail"
+                                   title="Voir détails"
+                                   [routerLink]="['/details-user', user.id]">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                <!-- Modifier -->
+                                <a class="icon-btn modifier"
+                                   title="Modifier"
+                                   [routerLink]="['/modifier-user', user.id]">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <!-- Suspendre -->
+                                <button type="button"
+                                        class="icon-btn suspendre"
+                                        title="Suspendre">
+                                    <i class="fas fa-pause"></i>
+                                </button>
+
+                                <!-- Réinitialiser le mot de passe -->
+                                <button type="button"
+                                        class="icon-btn mot-de-passe"
+                                        title="Réinitialiser le mot de passe"
+                                        [disabled]="user.id === undefined"
+                                        (click)="ouvrirModalReset(user)">
+                                    <i class="fas fa-key"></i>
+                                </button>
+
+                                <!-- Supprimer -->
+                                <button type="button"
+                                        class="icon-btn supprimer"
+                                        title="Supprimer"
+                                        [disabled]="user.id === undefined"
+                                        (click)="ouvrirSuppression(user)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            } @else {
+                <tr>
+                    <td colspan="11" class="text-center">
+                        Aucun utilisateur disponible.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Composant indépendant de suppression -->
+<app-supprimer-user
+    [user]="userSelectionnePourSuppression()"
+    (fermerModal)="fermerSuppression()"
+    (suppressionReussie)="apresSuppression()">
+</app-supprimer-user>
+
+<!-- Fenêtre de réinitialisation du mot de passe -->
+@if (userAReinitialiser(); as r) {
+    <div class="modal-overlay" (click)="fermerModalReset()">
+        <div class="modal-box" (click)="$event.stopPropagation()">
+
+            <div class="modal-header reset">
+                <h3>
+                    <i class="fas fa-key"></i>
+                    Réinitialisation du mot de passe
+                </h3>
+
+                <button type="button"
+                        class="modal-close"
+                        (click)="fermerModalReset()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    Êtes-vous sûr de vouloir réinitialiser le mot de passe de
+                    <strong>{{ r.nom }} {{ r.prenom || '' }}</strong> ?
+                </p>
+
+                <p class="modal-warning">
+                    Le mot de passe sera remis à la valeur par défaut
+                    <strong>{{ motDePasseParDefaut }}</strong>.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn-annuler"
+                        (click)="fermerModalReset()">
+                    <i class="fas fa-times"></i> Annuler
+                </button>
+
+                <button type="button"
+                        class="btn-reset"
+                        (click)="confirmerReset()">
+                    <i class="fas fa-key"></i> Réinitialiser
+                </button>
+            </div>
+        </div>
+    </div>
+}

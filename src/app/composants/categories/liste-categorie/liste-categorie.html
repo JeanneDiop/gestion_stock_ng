@@ -1,0 +1,97 @@
+ <!-- En-tête -->
+<div class="header-table">
+
+    <div class="titre">
+        <h1>Liste des catégories</h1>
+    </div>
+
+    <div class="actions-header">
+
+        <a routerLink="/ajouter-categorie" class="btn-ajouter">
+            Ajouter catégorie
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Tableau -->
+<div class="table-container">
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (categories.length > 0) {
+
+                @for (categorie of categories; track categorie.id) {
+
+                    <tr>
+
+                        <td>
+                            {{ categorie.id }}
+                        </td>
+
+                        <td>
+                            {{ categorie.nom }}
+                        </td>
+
+                        <td>
+                            {{ categorie.description || 'Aucune description' }}
+                        </td>
+
+                        <td class="actions">
+
+                            <button
+                                class="icon-btn modifier"
+                                title="Modifier"
+                                [routerLink]="['/modifier-categorie', categorie.id]">
+                                <i class="fas fa-pen"></i>
+                            </button>
+
+                            <a
+                                class="icon-btn detail"
+                                title="Voir détails"
+                                [routerLink]="['/details-categorie', categorie.id]">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                           <button
+    class="icon-btn supprimer"
+    title="Supprimer"
+    (click)="supprimerCategorie(categorie.id!)">
+
+    <i class="fas fa-trash"></i>
+
+</button>
+
+                        </td>
+
+                    </tr>
+
+                }
+
+            } @else {
+
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 20px;">
+                        Aucune catégorie disponible.
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

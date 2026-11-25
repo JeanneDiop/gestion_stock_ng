@@ -1,0 +1,80 @@
+
+<div class="overlay" (click)="fermer()">
+
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <!-- En-tête -->
+    <div class="modal-header">
+
+      <h2>
+        <i class="fas fa-exclamation-triangle"></i>
+        Confirmation de suppression
+      </h2>
+
+      <button
+        type="button"
+        class="btn-x"
+        (click)="fermer()"
+        title="Fermer">
+        &times;
+      </button>
+
+    </div>
+
+    <!-- Corps -->
+    <div class="modal-body">
+
+      <p>
+        Êtes-vous sûr de vouloir supprimer le client
+        <strong>{{ client?.nom }} {{ client?.prenom }}</strong>
+        ({{ client?.code_client }}) ?
+      </p>
+
+      <p class="avertissement">
+        Cette action est irréversible.
+      </p>
+
+      @if (erreur()) {
+        <div class="message-erreur">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ erreur() }}
+        </div>
+      }
+
+    </div>
+
+    <!-- Pied de page -->
+    <div class="modal-footer">
+
+      <button
+        type="button"
+        class="btn btn-annuler"
+        (click)="fermer()"
+        [disabled]="envoiEnCours()">
+
+        <i class="fas fa-times"></i>
+        Annuler
+
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-supprimer"
+        (click)="confirmerSuppression()"
+        [disabled]="envoiEnCours()">
+
+        @if (envoiEnCours()) {
+          <i class="fas fa-spinner fa-spin"></i>
+          Suppression...
+        } @else {
+          <i class="fas fa-trash"></i>
+          Supprimer
+        }
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

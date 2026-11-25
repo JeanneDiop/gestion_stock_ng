@@ -1,0 +1,115 @@
+
+<!-- En-tête -->
+<div class="header-table">
+
+    <div class="titre">
+        <h1>Liste des clients</h1>
+    </div>
+
+    <div class="actions-header">
+        <a routerLink="/ajouter-client" class="btn-ajouter">
+            <i class="fas fa-plus"></i>
+            Ajouter client
+        </a>
+    </div>
+
+</div>
+
+<!-- Tableau -->
+<div class="table-container">
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Genre</th>
+                <th>Code client</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (clients().length > 0) {
+
+                @for (client of clients(); track client.id) {
+
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.nom || '-' }}</td>
+                        <td>{{ client.prenom || '-' }}</td>
+                        <td>{{ client.genre || '-' }}</td>
+                        <td>{{ client.code_client || '-' }}</td>
+                        <td>{{ client.telephone || '-' }}</td>
+                        <td>{{ client.adresse || '-' }}</td>
+                        <td>{{ client.ville || '-' }}</td>
+                        <td>{{ client.pays || '-' }}</td>
+
+                        <td>
+                            <div class="actions">
+
+                                <!-- Voir détails -->
+                                <a
+                                    class="icon-btn detail"
+                                    title="Voir détails"
+                                    [routerLink]="['/detail-client', client.id]">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                <!-- Modifier -->
+                                <a
+                                    class="icon-btn modifier"
+                                    title="Modifier"
+                                    [routerLink]="['/modifier-client', client.id]">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <!-- Supprimer -->
+                                <button
+                                    type="button"
+                                    class="icon-btn supprimer"
+                                    title="Supprimer"
+                                    [disabled]="client.id === undefined"
+                                    (click)="ouvrirModalSuppression(client)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+
+            } @else {
+
+                <tr>
+                    <td colspan="10" class="text-center">
+                        Aucun client disponible.
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- Composant indépendant de suppression -->
+@if (clientASupprimer(); as c) {
+
+    <app-client-supprimer
+        [client]="c"
+        (fermerModal)="fermerModal()"
+        (suppressionReussie)="chargerClients()">
+    </app-client-supprimer>
+
+}

@@ -1,0 +1,129 @@
+
+<div class="overlay" (click)="fermer()">
+
+  <form
+    class="modal-box"
+    [formGroup]="formulaire"
+    (ngSubmit)="enregistrer()"
+    (click)="$event.stopPropagation()"
+    autocomplete="off"
+    novalidate>
+
+    <!-- En-tête bleu -->
+    <div class="modal-header">
+      <h2><i class="fas fa-user-plus"></i> Ajouter un client</h2>
+      <button type="button" class="btn-x" (click)="fermer()" title="Fermer">&times;</button>
+    </div>
+
+    <!-- Corps -->
+    <div class="modal-body">
+
+      @if (erreur()) {
+        <div class="alerte-erreur">
+          <i class="fas fa-exclamation-circle"></i> {{ erreur() }}
+        </div>
+      }
+
+      <div class="grille">
+
+        <div class="champ">
+          <label for="nom"><i class="fas fa-user"></i> Nom</label>
+          <input
+            id="nom"
+            type="text"
+            formControlName="nom"
+            autocomplete="off"
+            [class.invalide]="formulaire.controls.nom.invalid && formulaire.controls.nom.touched">
+          @if (formulaire.controls.nom.invalid && formulaire.controls.nom.touched) {
+            <small class="message-erreur">Le nom est obligatoire.</small>
+          }
+        </div>
+
+        <div class="champ">
+          <label for="prenom"><i class="fas fa-user"></i> Prénom</label>
+          <input
+            id="prenom"
+            type="text"
+            formControlName="prenom"
+            autocomplete="off"
+            [class.invalide]="formulaire.controls.prenom.invalid && formulaire.controls.prenom.touched">
+          @if (formulaire.controls.prenom.invalid && formulaire.controls.prenom.touched) {
+            <small class="message-erreur">Le prénom est obligatoire.</small>
+          }
+        </div>
+
+        <div class="champ">
+          <label for="genre"><i class="fas fa-venus-mars"></i> Genre</label>
+          <select
+            id="genre"
+            formControlName="genre"
+            autocomplete="off"
+            [class.invalide]="formulaire.controls.genre.invalid && formulaire.controls.genre.touched">
+            <option value="Homme">Homme</option>
+            <option value="Femme">Femme</option>
+          </select>
+          @if (formulaire.controls.genre.invalid && formulaire.controls.genre.touched) {
+            <small class="message-erreur">Le genre est obligatoire.</small>
+          }
+        </div>
+
+        <div class="champ">
+          <label for="telephone"><i class="fas fa-phone"></i> Téléphone</label>
+          <input
+            id="telephone"
+            type="tel"
+            formControlName="telephone"
+            autocomplete="off"
+            placeholder="Optionnel">
+        </div>
+
+        <div class="champ pleine-largeur">
+          <label for="adresse"><i class="fas fa-map-marker-alt"></i> Adresse</label>
+          <input
+            id="adresse"
+            type="text"
+            formControlName="adresse"
+            autocomplete="off"
+            placeholder="Optionnel">
+        </div>
+
+        <div class="champ">
+          <label for="ville"><i class="fas fa-city"></i> Ville</label>
+          <input
+            id="ville"
+            type="text"
+            formControlName="ville"
+            autocomplete="off"
+            placeholder="Optionnel">
+        </div>
+
+        <div class="champ">
+          <label for="pays"><i class="fas fa-globe"></i> Pays</label>
+          <input
+            id="pays"
+            type="text"
+            formControlName="pays"
+            autocomplete="off"
+            placeholder="Optionnel">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pied de la fenêtre -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-annuler" (click)="annuler()">
+        Annuler
+      </button>
+
+      <button type="submit" class="btn btn-enregistrer" [disabled]="envoiEnCours()">
+        @if (envoiEnCours()) {
+          <i class="fas fa-spinner fa-spin"></i> Enregistrement...
+        } @else {
+          Enregistrer
+        }
+      </button>
+    </div>
+
+  </form>
+</div>

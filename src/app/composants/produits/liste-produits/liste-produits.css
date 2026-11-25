@@ -1,0 +1,205 @@
+.container{
+    padding:30px;
+    background:#f8f9fa;
+    min-height:100vh;
+}
+
+
+/* En-tête */
+
+.header-table{
+     display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+
+.header-table h2{
+    font-size:26px;
+    color:#333;
+}
+
+
+.btn-ajouter{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+
+/* Recherche */
+
+.search input{
+
+    width:300px;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:20px;
+
+}
+
+
+/* Tableau */
+
+.table-container{
+
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    overflow-x:auto;
+    margin-top:30px;
+
+}
+
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+thead{
+
+    background:#0d6efd;
+    color:white;
+
+}
+
+
+th{
+
+    padding:15px;
+    text-align:left;
+
+}
+
+
+td{
+
+    padding:15px;
+    border-bottom:1px solid #eee;
+
+}
+
+
+tbody tr:hover{
+
+    background:#f5f8ff;
+
+}
+
+
+/* Image produit */
+
+.produit-image{
+
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+
+/* Etat */
+
+.badge{
+
+    background:#198754;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+
+}
+
+
+/* Boutons */
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Style général des boutons */
+.icon-btn {
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+/* Modifier */
+.modifier {
+
+    background-color: #ffc107;
+    color: white;
+
+}
+
+.modifier:hover {
+
+    background-color: #e0a800;
+    transform: scale(1.1);
+
+}
+
+
+/* Détails */
+.detail {
+    background-color: #0d6efd;
+    color: white;
+    text-decoration: none;
+}
+
+.detail:hover {
+    background-color: #084298;
+    transform: scale(1.1);
+}
+
+/* Correction de l'icône œil */
+.detail i {
+    text-decoration: none;
+    font-style: normal;
+}
+
+
+/* Supprimer */
+.supprimer {
+
+    background-color: #dc3545;
+    color: white;
+
+}
+
+.supprimer:hover {
+
+    background-color: #b02a37;
+    transform: scale(1.1);
+
+}

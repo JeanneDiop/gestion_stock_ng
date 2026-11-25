@@ -1,0 +1,177 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 490px;
+  background: #fff;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.modal-header {
+  height: 76px;
+  padding: 0 23px;
+  background: #e94b3c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-x {
+  background: none;
+  border: none;
+  color: #ffd5d0;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn-x:hover {
+  color: #fff;
+}
+
+.modal-body {
+  padding: 30px 23px 15px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.modal-body p {
+  margin: 0 0 17px;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.modal-body .avertissement {
+  margin: 0;
+  color: #6c757d;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.message-erreur {
+  color: #842029;
+  background: #f8d7da;
+  border: 1px solid #f5c2c7;
+  border-radius: 5px;
+  padding: 6px 9px;
+  margin-top: 5px;
+  font-size: 8px;
+}
+
+.modal-footer {
+  height: 79px;
+  padding: 0 27px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  box-sizing: border-box;
+}
+
+.btn {
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-annuler {
+  background: #6c757d;
+  color: #fff;
+}
+
+.btn-annuler:hover:not(:disabled) {
+  background: #565e64;
+}
+
+.btn-supprimer {
+  background: #e94b3c;
+  color: #fff;
+}
+
+.btn-supprimer:hover:not(:disabled) {
+  background: #c9302c;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+  .modal-header {
+    height: 62px;
+    padding: 0 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 14px;
+  }
+
+  .modal-body {
+    padding: 22px 15px;
+  }
+
+  .modal-body p {
+    font-size: 12px;
+  }
+
+  .modal-footer {
+    height: auto;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .btn {
+    height: 42px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+}

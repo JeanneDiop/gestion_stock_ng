@@ -1,0 +1,129 @@
+<!-- En-tête -->
+<div class="header-table">
+
+    <div class="titre">
+        <h1>Liste des fournisseurs</h1>
+    </div>
+
+    <div class="actions-header">
+        <a routerLink="/ajouter-fournisseur" class="btn-ajouter">
+            Ajouter fournisseur
+        </a>
+    </div>
+
+</div>
+
+<!-- Tableau des fournisseurs -->
+<div class="table-container">
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Entreprise</th>
+                <th>Genre</th>
+                <th>Adresse</th>
+                <th>Site web</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (fournisseurs.length > 0) {
+
+                @for (fournisseur of fournisseurs; track fournisseur.id) {
+
+                    <tr>
+
+                        <td>{{ fournisseur.id }}</td>
+
+                        <td>{{ fournisseur.nom }}</td>
+
+                        <td>{{ fournisseur.prenom }}</td>
+
+                        <td>{{ fournisseur.telephone || 'Non renseigné' }}</td>
+
+                        <td>{{ fournisseur.email || 'Non renseigné' }}</td>
+
+                        <td>{{ fournisseur.nom_entreprise || 'Non renseignée' }}</td>
+
+                        <td>{{ fournisseur.genre }}</td>
+
+                        <td>{{ fournisseur.adresse || 'Non renseignée' }}</td>
+
+                        <td>
+                            @if (fournisseur.site_web) {
+                                <a [href]="fournisseur.site_web"
+                                   target="_blank">
+                                    Visiter le site
+                                </a>
+                            } @else {
+                                Non renseigné
+                            }
+                        </td>
+
+                        <!-- Statut -->
+                        <td>
+                            <span
+                                class="badge"
+                                [ngClass]="fournisseur.statut === 'Actif' ? 'actif' : 'inactif'">
+                                {{ fournisseur.statut }}
+                            </span>
+                        </td>
+
+                        <!-- Actions -->
+                        <td class="actions">
+
+                            <!-- Modifier -->
+                            <a
+                                class="icon-btn modifier"
+                                title="Modifier"
+                                [routerLink]="['/modifier-fournisseur', fournisseur.id]">
+                                <i class="fas fa-pen"></i>
+                            </a>
+
+                            <!-- Détails -->
+                            <a
+                                class="icon-btn detail"
+                                title="Voir détails"
+                                [routerLink]="['/details-fournisseur', fournisseur.id]">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <!-- Supprimer -->
+                            <button
+                                type="button"
+                                class="icon-btn supprimer"
+                                title="Supprimer"
+                                (click)="supprimerFournisseur(fournisseur.id!)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                }
+
+            } @else {
+
+                <tr>
+                    <td colspan="11" style="text-align: center; padding: 20px;">
+                        Aucun fournisseur disponible.
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

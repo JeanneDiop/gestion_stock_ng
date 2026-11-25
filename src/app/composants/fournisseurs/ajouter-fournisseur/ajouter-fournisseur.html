@@ -1,0 +1,137 @@
+
+<!-- En-tête -->
+<div class="header-table">
+
+    <div class="titre">
+        <h1>Ajouter un fournisseur</h1>
+    </div>
+
+</div>
+
+<!-- Formulaire fournisseur -->
+<div class="form-container">
+
+    <form (ngSubmit)="ajouterFournisseur()">
+
+        <div class="form-grid">
+
+            <!-- Nom -->
+            <div class="form-group">
+                <label>Nom</label>
+                <input
+                    type="text"
+                    name="nom"
+                    [(ngModel)]="fournisseur.nom"
+                    placeholder="Entrer le nom"
+                    required>
+            </div>
+
+            <!-- Prénom -->
+            <div class="form-group">
+                <label>Prénom</label>
+                <input
+                    type="text"
+                    name="prenom"
+                    [(ngModel)]="fournisseur.prenom"
+                    placeholder="Entrer le prénom"
+                    required>
+            </div>
+
+            <!-- Téléphone -->
+            <div class="form-group">
+                <label>Téléphone</label>
+                <input
+                    type="tel"
+                    name="telephone"
+                    [(ngModel)]="fournisseur.telephone"
+                    placeholder="Entrer le téléphone">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="fournisseur.email"
+                    placeholder="Entrer l'adresse email">
+            </div>
+
+            <!-- Entreprise -->
+            <div class="form-group">
+                <label>Nom de l'entreprise</label>
+                <input
+                    type="text"
+                    name="nom_entreprise"
+                    [(ngModel)]="fournisseur.nom_entreprise"
+                    placeholder="Entrer le nom de l'entreprise">
+            </div>
+
+            <!-- Genre -->
+            <div class="form-group">
+                <label>Genre</label>
+                <select
+                    name="genre"
+                    [(ngModel)]="fournisseur.genre"
+                    required>
+
+                    <option value="">Sélectionner le genre</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+
+                </select>
+            </div>
+
+            <!-- Adresse -->
+            <div class="form-group">
+                <label>Adresse</label>
+                <input
+                    type="text"
+                    name="adresse"
+                    [(ngModel)]="fournisseur.adresse"
+                    placeholder="Entrer l'adresse">
+            </div>
+
+            <!-- Site web -->
+            <div class="form-group">
+                <label>Site web</label>
+                <input
+                    type="url"
+                    name="site_web"
+                    [(ngModel)]="fournisseur.site_web"
+                    placeholder="https://www.exemple.com">
+            </div>
+
+            <!-- Statut -->
+            <div class="form-group">
+                <label>Statut</label>
+                <select
+                    name="statut"
+                    [(ngModel)]="fournisseur.statut"
+                    required>
+
+                    <option value="">Sélectionner le statut</option>
+                    <option value="Actif">Actif</option>
+                    <option value="Inactif">Inactif</option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Boutons -->
+        <div class="form-actions">
+
+            <button type="submit" class="btn-enregistrer">
+                Ajouter fournisseur
+            </button>
+
+            <a routerLink="/ListeFournisseurs" class="btn-annuler">
+                Annuler
+            </a>
+
+        </div>
+
+    </form>
+
+</div>

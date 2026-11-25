@@ -1,0 +1,215 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 15px;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* En-tête bleu */
+.modal-header {
+  background: #3a78b5;
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-x {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Corps */
+.modal-body {
+  padding: 15px 25px;
+  background: #fff;
+}
+
+/* Avatar */
+.image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+}
+
+.nom-complet {
+  margin: 0;
+  font-size: 20px;
+  color: #212529;
+}
+
+.badge {
+  background: #198754;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* Onglets */
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: 0.2s;
+}
+
+.tab:hover {
+  color: #212529;
+}
+
+.tab.active {
+  color: #212529;
+  font-weight: 600;
+  border-bottom-color: #3a78b5;
+}
+
+/* Section */
+.section {
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.section-top h3 {
+  margin: 0 0 15px;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #212529;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+}
+
+.col p {
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.col i {
+  width: 22px;
+  color: #555;
+}
+
+/* Chargement / erreur */
+.chargement {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+}
+
+.chargement.erreur {
+  color: #dc3545;
+}
+
+/* Pied de la fenêtre */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #e5e5e5;
+}
+
+.btn {
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Précédent */
+.btn-prec {
+  background: #fff;
+  color: #6c757d;
+  border: 1px solid #adb5bd;
+}
+
+.btn-prec:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Suivant */
+.btn-suiv {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.btn-suiv:hover:not(:disabled) {
+  background: #0b5ed7;
+}
+
+.btn-suiv:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Fermer */
+.btn-fermer {
+  background: #495057;
+  color: #fff;
+}
+
+.btn-fermer:hover {
+  background: #343a40;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,136 @@
+
+/* ===== CONTENEUR PRINCIPAL ===== */
+
+.container {
+    min-height: 100vh;
+    background: #f5f6fa;
+    padding: 25px;
+}
+
+/* ===== CARTE DU FORMULAIRE ===== */
+
+.card {
+    background: white;
+    max-width: 750px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== TITRE ===== */
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0d6efd;
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* ===== FORMULAIRE ===== */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+textarea {
+    height: 80px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #0d6efd;
+}
+
+/* ===== DISPOSITION DES CHAMPS ===== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 20px;
+}
+
+/* ===== BOUTONS ===== */
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button,
+.btn-annuler {
+    flex: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-enregistrer {
+    background: #0d6efd;
+    color: white;
+}
+
+.btn-enregistrer:hover {
+    background: #084298;
+}
+
+.btn-annuler {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-annuler:hover {
+    background: #b02a37;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}

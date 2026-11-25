@@ -1,0 +1,124 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Modifier un utilisateur</h2>
+
+  </div>
+
+  @if (chargement()) {
+    <div class="message-chargement">
+      Chargement des informations de l'utilisateur...
+    </div>
+  } @else {
+
+    <div class="form-container">
+
+      @if (erreur()) {
+        <div class="message erreur">
+          {{ erreur() }}
+        </div>
+      }
+
+      @if (succes()) {
+        <div class="message succes">
+          {{ succes() }}
+        </div>
+      }
+
+      <form (ngSubmit)="modifierUser()">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Nom</label>
+            <input
+              type="text"
+              name="nom"
+              [(ngModel)]="user.nom"
+              required
+              placeholder="Entrer le nom">
+          </div>
+
+          <div class="form-group">
+            <label>Prénom</label>
+            <input
+              type="text"
+              name="prenom"
+              [(ngModel)]="user.prenom"
+              required
+              placeholder="Entrer le prénom">
+          </div>
+
+          <div class="form-group">
+            <label>Genre</label>
+            <select
+              name="genre"
+              [(ngModel)]="user.genre"
+              required>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
+          </div>
+
+
+
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input
+              type="tel"
+              name="telephone"
+              [(ngModel)]="user.telephone"
+              required
+              placeholder="Entrer le téléphone">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="user.email"
+              required
+              placeholder="Entrer l'email">
+          </div>
+
+          <div class="form-group">
+            <label>Rôle</label>
+            <input
+              type="text"
+              name="role"
+              [(ngModel)]="user.role_nom"
+              required
+              placeholder="Entrer le rôle">
+          </div>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+            type="button"
+            class="btn-annuler"
+            (click)="annuler()">
+            Annuler
+          </button>
+
+          <button
+            type="submit"
+            class="btn-modifier"
+            [disabled]="envoiEnCours()">
+            @if (envoiEnCours()) {
+              Modification...
+            } @else {
+              Enregistrer les modifications
+            }
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  }
+
+</div>

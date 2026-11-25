@@ -1,0 +1,541 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f6fa;
+    font-family: Arial, sans-serif;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    background: #172554;
+    color: white;
+    padding: 28px 18px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+.logo h2 {
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-size: 27px;
+}
+
+.menu-title {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 0 15px 12px;
+    letter-spacing: 1px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px;
+    color: #dbeafe;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.sidebar nav a span {
+    font-size: 18px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* CONTENU PRINCIPAL */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 32px 38px;
+}
+
+/* EN-TETE */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.topbar h1 {
+    color: #172554;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.topbar p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ADMINISTRATEUR */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 15px 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.user-icon {
+    font-size: 30px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.user-info strong {
+    display: block;
+    color: #172554;
+    font-size: 14px;
+}
+
+.user-info small {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+/* BOUTON DECONNEXION */
+
+.btn-deconnexion {
+    background: #172554;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-deconnexion:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* BANNIERE */
+
+.welcome {
+    background: linear-gradient(120deg, #1e3a8a, #3b82f6);
+    padding: 32px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome h2 {
+    font-size: 24px;
+    margin-bottom: 13px;
+}
+
+.welcome p {
+    color: #dbeafe;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+.welcome-icon {
+    font-size: 65px;
+    margin-left: 20px;
+}
+
+/* TITRE DES CARTES */
+
+.section-header {
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    color: #172554;
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+
+.section-header p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* CARTES */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 13px;
+    border-bottom: 4px solid transparent;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 22px rgba(0,0,0,0.10);
+}
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #172554;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 44px;
+    margin-bottom: 22px;
+}
+
+/* BOUTONS DES CARTES */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 15px;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
+
+.btn span {
+    font-size: 18px;
+}
+
+/* PRODUITS : BLEU */
+
+.produits {
+    border-bottom-color: #2563eb;
+}
+
+.produits .card-icon {
+    background: #dbeafe;
+}
+
+.produits .btn {
+    background: #2563eb;
+}
+
+/* CATEGORIES : VIOLET */
+
+.categories {
+    border-bottom-color: #9333ea;
+}
+
+.categories .card-icon {
+    background: #f3e8ff;
+}
+
+.categories .btn {
+    background: #9333ea;
+}
+
+/* CLIENTS : VERT */
+
+.clients {
+    border-bottom-color: #16a34a;
+}
+
+.clients .card-icon {
+    background: #dcfce7;
+}
+
+.clients .btn {
+    background: #16a34a;
+}
+
+/* FOURNISSEURS : ORANGE */
+
+.fournisseurs {
+    border-bottom-color: #ea580c;
+}
+
+.fournisseurs .card-icon {
+    background: #ffedd5;
+}
+
+.fournisseurs .btn {
+    background: #ea580c;
+}
+
+/* COMMANDES : ROSE */
+
+.commandes {
+    border-bottom-color: #db2777;
+}
+
+.commandes .card-icon {
+    background: #fce7f3;
+}
+
+.commandes .btn {
+    background: #db2777;
+}
+
+/* STOCKS : TURQUOISE */
+
+.stocks {
+    border-bottom-color: #0891b2;
+}
+
+.stocks .card-icon {
+    background: #cffafe;
+}
+
+.stocks .btn {
+    background: #0891b2;
+}
+
+/* UTILISATEURS : ROUGE */
+
+.utilisateurs {
+    border-bottom-color: #dc2626;
+}
+
+.utilisateurs .card-icon {
+    background: #fee2e2;
+}
+
+.utilisateurs .btn {
+    background: #dc2626;
+}
+
+/* PIED DE PAGE */
+
+.footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+/* FENETRE DE CONFIRMATION DE DECONNEXION */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-confirmation {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: black;
+}
+
+.modal-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.modal-confirmation h2 {
+    color: #172554;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.modal-confirmation p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.btn-annuler,
+.btn-confirmer {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-annuler {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.btn-annuler:hover {
+    background: #cbd5e1;
+}
+
+.btn-confirmer {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-confirmer:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+/* ANIMATION */
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-content {
+        padding: 22px;
+    }
+
+    .welcome-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .user {
+        width: 100%;
+    }
+
+    .welcome h2 {
+        font-size: 20px;
+    }
+
+    .welcome {
+        padding: 22px;
+    }
+
+    .modal-confirmation {
+        padding: 25px 18px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .btn-annuler,
+    .btn-confirmer {
+        width: 100%;
+    }
+}

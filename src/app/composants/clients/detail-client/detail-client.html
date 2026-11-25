@@ -1,0 +1,72 @@
+<div class="overlay" (click)="fermer()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <!-- En-tête bleu -->
+    <div class="modal-header">
+      <h2><i class="fas fa-user"></i> Détails du client</h2>
+      <button type="button" class="btn-x" (click)="fermer()" title="Fermer">&times;</button>
+    </div>
+
+    <!-- Corps -->
+    <div class="modal-body">
+
+      @if (chargement()) {
+
+        <div class="chargement">
+          <i class="fas fa-spinner fa-spin"></i> Chargement...
+        </div>
+
+      } @else if (erreur()) {
+
+        <div class="chargement erreur">
+          <i class="fas fa-exclamation-circle"></i> {{ erreur() }}
+        </div>
+
+      } @else if (client(); as c) {
+
+      
+        <!-- Nom et code client sur la même ligne -->
+<div class="image-col">
+  <h3 class="nom-complet">{{ c.nom || '' }} {{ c.prenom || '' }}</h3>
+  @if (c.code_client) {
+    <span class="badge">{{ c.code_client }}</span>
+  }
+</div>
+
+        <!-- Toutes les informations au même endroit -->
+        <div class="section">
+
+          <div class="section-top"><h3>Informations du client</h3></div>
+
+          <div class="grid">
+            <div class="col">
+              <p><i class="fas fa-hashtag"></i> <strong>ID :</strong> {{ c.id }}</p>
+              <p><i class="fas fa-user"></i> <strong>Nom :</strong> {{ c.nom || '-' }}</p>
+              <p><i class="fas fa-user"></i> <strong>Prénom :</strong> {{ c.prenom || '-' }}</p>
+              <p><i class="fas fa-venus-mars"></i> <strong>Genre :</strong> {{ c.genre || '-' }}</p>
+              <p><i class="fas fa-id-card"></i> <strong>Code client :</strong> {{ c.code_client || '-' }}</p>
+            </div>
+
+            <div class="col">
+              <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> {{ c.telephone || '-' }}</p>
+              <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> {{ c.adresse || '-' }}</p>
+              <p><i class="fas fa-city"></i> <strong>Ville :</strong> {{ c.ville || '-' }}</p>
+              <p><i class="fas fa-globe"></i> <strong>Pays :</strong> {{ c.pays || '-' }}</p>
+            </div>
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- Pied de la fenêtre -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-fermer" (click)="fermer()">
+        <i class="fas fa-times"></i> Fermer
+      </button>
+    </div>
+
+  </div>
+</div>

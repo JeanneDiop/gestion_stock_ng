@@ -1,0 +1,93 @@
+/* Conteneur principal */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+}
+
+
+/* Carte de connexion */
+.login-card {
+  width: 380px;
+  padding: 35px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Titre */
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 28px;
+}
+
+
+/* Groupe formulaire */
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+/* Label */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+
+/* Champs input */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+
+/* Effet quand on clique dans le champ */
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+
+/* Bouton connexion */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+/* Survol bouton */
+button:hover {
+  background: #0056b3;
+}
+
+
+/* Responsive mobile */
+@media (max-width: 480px) {
+
+  .login-card {
+    width: 90%;
+    padding: 25px;
+  }
+
+}

@@ -1,0 +1,210 @@
+
+/* ===== EN-TÊTE ===== */
+
+.header-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 10px 0;
+    
+}
+
+.titre h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #263445;
+    margin: 0;
+}
+
+/* ===== BOUTON AJOUTER ===== */
+
+.actions-header {
+    display: flex;
+    align-items: center;
+}
+
+.btn-ajouter {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-ajouter:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== CONTENEUR DU TABLEAU ===== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* ===== TABLEAU ===== */
+
+.table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+    background: white;
+}
+
+.table thead tr {
+    background-color: #2563eb;
+}
+
+.table th {
+    padding: 15px 12px;
+    text-align: left;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #2563eb;
+    border-bottom: 1px solid #1d4ed8;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 14px 12px;
+    color: #475569;
+    font-size: 13px;
+    border-bottom: 1px solid #edf0f4;
+    white-space: nowrap;
+}
+
+.table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== LIEN SITE WEB ===== */
+
+.table td a:not(.icon-btn) {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.table td a:not(.icon-btn):hover {
+    text-decoration: underline;
+}
+
+/* ===== BADGES STATUT ===== */
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.actif {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge.inactif {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* ===== BOUTONS ACTIONS ===== */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 33px;
+    height: 33px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+/* Modifier */
+
+.icon-btn.modifier {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.icon-btn.modifier:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Détails */
+
+.icon-btn.detail {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.icon-btn.detail:hover {
+    background: #16a34a;
+    color: white;
+}
+
+/* Supprimer */
+
+.icon-btn.supprimer {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.icon-btn.supprimer:hover {
+    background: #dc2626;
+    color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media screen and (max-width: 768px) {
+
+    .header-table {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .titre h1 {
+        font-size: 21px;
+    }
+
+    .btn-ajouter {
+        padding: 10px 15px;
+    }
+
+    .table {
+        min-width: 1100px;
+    }
+}

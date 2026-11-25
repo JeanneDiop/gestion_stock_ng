@@ -1,0 +1,237 @@
+
+<div class="dashboard">
+
+  <!-- MENU LATERAL -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <span>📊</span>
+      <h2>GESTION STOCK</h2>
+    </div>
+
+    <p class="menu-title">MENU PRINCIPAL</p>
+
+    <nav>
+      <a routerLink="/accueil" class="active">
+        <span>🏠</span> Accueil
+      </a>
+
+      <a routerLink="/ListeUtilisateurs">
+        <span>👤</span> Utilisateurs
+      </a>
+
+      <a routerLink="/ListeProduits">
+        <span>📦</span> Produits
+      </a>
+
+      <a routerLink="/ListeCategories">
+        <span>🗂️</span> Catégories
+      </a>
+
+      <a routerLink="/ListeClients">
+        <span>👥</span> Clients
+      </a>
+
+      <a routerLink="/ListeFournisseurs">
+        <span>🏢</span> Fournisseurs
+      </a>
+
+      <a routerLink="/commandes">
+        <span>🛒</span> Commandes
+      </a>
+
+      <a routerLink="/stock">
+        <span>📊</span> Stocks
+      </a>
+    </nav>
+
+  </aside>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="main-content">
+
+    <!-- EN-TETE -->
+    <header class="topbar">
+
+      <div>
+        <h1>Bienvenue !</h1>
+        <p>Tableau de bord de gestion de stock</p>
+      </div>
+
+      <div class="user">
+
+        <span class="user-icon">👤</span>
+
+        <div class="user-info">
+          <strong>Administrateur</strong>
+          <small>Espace administration</small>
+
+          <button
+            type="button"
+            class="btn-deconnexion"
+            (click)="ouvrirConfirmation()">
+            🚪 Déconnexion
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- BANNIERE -->
+    <section class="welcome">
+
+      <div>
+        <h2>Bienvenue dans votre espace Gestion Stock</h2>
+
+        <p>
+          Gérez facilement vos produits, catégories, clients,
+          fournisseurs et toutes vos opérations depuis un seul espace.
+        </p>
+      </div>
+
+      <div class="welcome-icon">📦</div>
+
+    </section>
+
+    <!-- TITRE -->
+    <div class="section-header">
+      <h2>Que souhaitez-vous gérer ?</h2>
+      <p>Sélectionnez un module pour commencer.</p>
+    </div>
+
+    <!-- CARTES -->
+    <section class="cards">
+
+      <!-- PRODUITS -->
+      <div class="card produits">
+        <div class="card-icon">📦</div>
+        <h3>Produits</h3>
+        <p>Consultez, ajoutez et modifiez vos produits.</p>
+
+        <a routerLink="/ListeProduits" class="btn">
+          Voir les produits <span>→</span>
+        </a>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="card categories">
+        <div class="card-icon">🗂️</div>
+        <h3>Catégories</h3>
+        <p>Consultez, ajoutez et modifiez vos catégories.</p>
+
+        <a routerLink="/ListeCategories" class="btn">
+          Voir les catégories <span>→</span>
+        </a>
+      </div>
+
+      <!-- CLIENTS -->
+      <div class="card clients">
+        <div class="card-icon">👥</div>
+        <h3>Clients</h3>
+        <p>Gérez vos clients et consultez leurs informations.</p>
+
+        <a routerLink="/ListeClients" class="btn">
+          Voir les clients <span>→</span>
+        </a>
+      </div>
+
+      <!-- FOURNISSEURS -->
+      <div class="card fournisseurs">
+        <div class="card-icon">🏢</div>
+        <h3>Fournisseurs</h3>
+        <p>Gérez vos fournisseurs et leurs coordonnées.</p>
+
+        <a routerLink="/ListeFournisseurs" class="btn">
+          Voir les fournisseurs <span>→</span>
+        </a>
+      </div>
+
+      <!-- COMMANDES -->
+      <div class="card commandes">
+        <div class="card-icon">🛒</div>
+        <h3>Commandes</h3>
+        <p>Consultez et gérez toutes vos commandes.</p>
+
+        <a routerLink="/commandes" class="btn">
+          Voir les commandes <span>→</span>
+        </a>
+      </div>
+
+      <!-- STOCKS -->
+      <div class="card stocks">
+        <div class="card-icon">📊</div>
+        <h3>Stocks</h3>
+        <p>Suivez les entrées, sorties et quantités en stock.</p>
+
+        <a routerLink="/stock" class="btn">
+          Voir le stock <span>→</span>
+        </a>
+      </div>
+
+      <!-- UTILISATEURS -->
+      <div class="card utilisateurs">
+        <div class="card-icon">👤</div>
+        <h3>Utilisateurs</h3>
+        <p>Gérez les comptes, les rôles et les accès des utilisateurs.</p>
+
+        <a routerLink="/ListeUtilisateurs" class="btn">
+          Voir les utilisateurs <span>→</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
+      © 2026 Gestion Stock - Tous droits réservés.
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FENETRE DE CONFIRMATION DE DECONNEXION -->
+@if (afficherConfirmation) {
+
+  <div class="modal-overlay">
+
+    <div class="modal-confirmation">
+
+      <div class="modal-icon">
+        🚪
+      </div>
+
+      <h2>Confirmer la déconnexion</h2>
+
+      <p>
+        Êtes-vous sûr de vouloir vous déconnecter
+        du portail Gestion Stock ?
+      </p>
+
+      <div class="modal-actions">
+
+        <!-- BOUTON ANNULER -->
+        <button
+          type="button"
+          class="btn-annuler"
+          (click)="annulerDeconnexion()">
+          Annuler
+        </button>
+
+        <!-- BOUTON CONFIRMER -->
+        <button
+          type="button"
+          class="btn-confirmer"
+          (click)="deconnexion()">
+          Se déconnecter
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}

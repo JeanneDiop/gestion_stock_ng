@@ -1,0 +1,133 @@
+
+<div class="container">
+
+  <div class="header">
+    <h2>Modifier un client</h2>
+    
+  </div>
+
+  @if (chargement()) {
+    <div class="message-chargement">
+      Chargement des informations du client...
+    </div>
+  } @else {
+
+    <div class="form-container">
+
+      @if (erreur()) {
+        <div class="message erreur">
+          {{ erreur() }}
+        </div>
+      }
+
+      @if (succes()) {
+        <div class="message succes">
+          {{ succes() }}
+        </div>
+      }
+
+      <form (ngSubmit)="modifierClient()">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Nom</label>
+            <input
+              type="text"
+              name="nom"
+              [(ngModel)]="client.nom"
+              required
+              placeholder="Entrer le nom">
+          </div>
+
+          <div class="form-group">
+            <label>Prénom</label>
+            <input
+              type="text"
+              name="prenom"
+              [(ngModel)]="client.prenom"
+              required
+              placeholder="Entrer le prénom">
+          </div>
+
+          <div class="form-group">
+            <label>Genre</label>
+            <select
+              name="genre"
+              [(ngModel)]="client.genre"
+              required>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Code client</label>
+            <input
+              type="text"
+              name="code_client"
+              [(ngModel)]="client.code_client"
+              required
+              placeholder="Ex : CL001">
+          </div>
+
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input
+              type="tel"
+              name="telephone"
+              [(ngModel)]="client.telephone"
+              required
+              placeholder="Entrer le téléphone">
+          </div>
+
+          <div class="form-group">
+            <label>Ville</label>
+            <input
+              type="text"
+              name="ville"
+              [(ngModel)]="client.ville"
+              required
+              placeholder="Entrer la ville">
+          </div>
+
+          <div class="form-group">
+            <label>Pays</label>
+            <input
+              type="text"
+              name="pays"
+              [(ngModel)]="client.pays"
+              required
+              placeholder="Entrer le pays">
+          </div>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+            type="button"
+            class="btn-annuler"
+            (click)="annuler()">
+            Annuler
+          </button>
+
+          <button
+            type="submit"
+            class="btn-modifier"
+            [disabled]="envoiEnCours()">
+            @if (envoiEnCours()) {
+              Modification...
+            } @else {
+              Enregistrer les modifications
+            }
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  }
+
+</div>

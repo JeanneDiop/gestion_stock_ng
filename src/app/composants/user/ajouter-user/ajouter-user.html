@@ -1,0 +1,152 @@
+<div class="container">
+
+    <div class="card">
+
+        <h2>Ajouter un utilisateur</h2>
+
+        <form (ngSubmit)="ajouterUser()" #userForm="ngForm">
+
+            <!-- Nom -->
+            <div class="form-group">
+                <label>Nom</label>
+                <input
+                    type="text"
+                    name="nom"
+                    [(ngModel)]="user.nom"
+                    placeholder="Entrer le nom"
+                    required>
+            </div>
+
+            <!-- Prénom -->
+            <div class="form-group">
+                <label>Prénom</label>
+                <input
+                    type="text"
+                    name="prenom"
+                    [(ngModel)]="user.prenom"
+                    placeholder="Entrer le prénom"
+                    required>
+            </div>
+
+            <!-- Téléphone -->
+            <div class="form-group">
+                <label>Téléphone</label>
+                <input
+                    type="tel"
+                    name="telephone"
+                    [(ngModel)]="user.telephone"
+                    placeholder="Entrer le numéro de téléphone">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="user.email"
+                    placeholder="Entrer l'adresse email">
+            </div>
+
+            <!-- Username -->
+            <div class="form-group">
+                <label>Nom d'utilisateur</label>
+                <input
+                    type="text"
+                    name="username"
+                    [(ngModel)]="user.username"
+                    placeholder="Entrer le nom d'utilisateur"
+                    required>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input
+                    type="password"
+                    name="password"
+                    [(ngModel)]="user.password"
+                    placeholder="Entrer le mot de passe"
+                    required>
+            </div>
+
+            <!-- Genre -->
+            <div class="form-group">
+                <label>Genre</label>
+                <select
+                    name="genre"
+                    [(ngModel)]="user.genre"
+                    required>
+
+                    <option value="">-- Sélectionner le genre --</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+
+                </select>
+            </div>
+
+            <!-- État -->
+            <div class="form-group">
+                <label>État</label>
+                <select
+                    name="etat"
+                    [(ngModel)]="user.etat"
+                    required>
+
+                    <option value="actif">Actif</option>
+                    <option value="inactif">Inactif</option>
+
+                </select>
+            </div>
+
+            <!-- Adresse -->
+            <div class="form-group">
+                <label>Adresse</label>
+                <textarea
+                    name="adresse"
+                    [(ngModel)]="user.adresse"
+                    placeholder="Entrer l'adresse"
+                    rows="3">
+                </textarea>
+            </div>
+
+            <!-- Rôle -->
+            <div class="form-group">
+                <label>Rôle</label>
+                <select
+                    name="role_nom"
+                    [(ngModel)]="user.role_nom"
+                    required>
+
+                    <option value="">-- Sélectionner un rôle --</option>
+                    <option value="admin">Admin</option>
+                    <option value="vendeur">Vendeur</option>
+                    <option value="superviseur">Superviseur</option>
+
+                </select>
+            </div>
+
+            <!-- Boutons -->
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="btn-enregistrer"
+                    [disabled]="userForm.invalid">
+                    Enregistrer
+                </button>
+
+                <button
+                    type="button"
+                    class="btn-annuler"
+                    routerLink="/ListeUtilisateurs">
+                    Annuler
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="card">
+
+    <h2>Ajouter une catégorie</h2>
+
+    <form (ngSubmit)="ajouterCategorie()">
+
+      <!-- ID catégorie -->
+      <div class="form-group">
+        <label>ID</label>
+        <input
+          type="number"
+          name="id"
+          [(ngModel)]="categorie.id"
+          placeholder="Entrer l'identifiant"
+          required>
+      </div>
+
+      <!-- Nom catégorie -->
+      <div class="form-group">
+        <label>Nom de la catégorie</label>
+        <input
+          type="text"
+          name="nom"
+          [(ngModel)]="categorie.nom"
+          placeholder="Entrer le nom de la catégorie"
+          required>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          name="description"
+          [(ngModel)]="categorie.description"
+          placeholder="Décrire la catégorie"
+          rows="4">
+        </textarea>
+      </div>
+
+      <!-- Boutons -->
+      <div class="actions">
+
+        <button
+          type="submit"
+          class="btn-ajouter">
+          Ajouter la catégorie
+        </button>
+
+        <button
+          type="button"
+          class="btn-annuler"
+          routerLink="/ListeCategories">
+          Annuler
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

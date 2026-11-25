@@ -1,0 +1,59 @@
+<div class="overlay">
+
+  <div class="modal-box">
+
+    <!-- En-tête -->
+    <div class="modal-header">
+      <h2><i class="fas fa-box"></i> Détails du produit</h2>
+      <button type="button" class="btn-x" (click)="fermer()">&times;</button>
+    </div>
+
+    <!-- Corps -->
+    <div class="modal-body">
+
+       @if (produit(); as p) {
+
+    <!-- Image juste après la bande bleue -->
+    @if (p.image) {
+      <div class="image-col">
+        <img [src]="'http://127.0.0.1:8000/storage/' + p.image" alt="Image du produit">
+      </div>
+    }
+
+        <div class="section">
+
+          <div class="grid">
+            <div class="col">
+              <p><i class="fas fa-hashtag"></i> <b>ID :</b> {{ p.id }}</p>
+              <p><i class="fas fa-box"></i> <b>Nom :</b> {{ p.nomproduit }}</p>
+              <p><i class="fas fa-money-bill"></i> <b>Prix :</b> {{ p.prix }} FCFA</p>
+              <p><i class="fas fa-align-left"></i> <b>Description :</b> {{ p.description }}</p>
+            </div>
+
+            <div class="col">
+              <p><i class="fas fa-circle-check"></i> <b>État :</b> <span class="badge">{{ p.etat }}</span></p>
+              <p><i class="fas fa-tags"></i> <b>Catégorie :</b> {{ p.categorie_id }}</p>
+              <p><i class="fas fa-truck"></i> <b>Fournisseur :</b> {{ p.fournisseur_id }}</p>
+              <p><i class="fas fa-calendar"></i> <b>Créé le :</b> {{ p.created_at | date:'dd/MM/yyyy' }}</p>
+            </div>
+          </div>
+
+
+        </div>
+
+      } @else {
+        <p class="chargement">Chargement des informations...</p>
+      }
+
+    </div>
+
+    <!-- Pied -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-fermer" (click)="fermer()">
+        Fermer
+      </button>
+    </div>
+
+  </div>
+
+</div>

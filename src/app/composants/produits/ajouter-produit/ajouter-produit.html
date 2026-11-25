@@ -1,0 +1,119 @@
+<div class="container">
+
+  <div class="card">
+
+    <h2>Ajouter un produit</h2>
+
+    <form (ngSubmit)="ajouterProduit()">
+
+      <!-- Nom produit -->
+      <div class="form-group">
+        <label>Nom du produit</label>
+        <input 
+          type="text"
+          name="nomproduit"
+          [(ngModel)]="produit.nomproduit"
+          placeholder="Entrer le nom du produit"
+          required>
+      </div>
+
+
+      <!-- Description -->
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          name="description"
+          [(ngModel)]="produit.description"
+          placeholder="Décrire le produit"
+          rows="4">
+        </textarea>
+      </div>
+
+
+      <!-- Prix -->
+      <div class="form-group">
+        <label>Prix</label>
+        <input
+          type="number"
+          name="prix"
+          [(ngModel)]="produit.prix"
+          placeholder="Entrer le prix"
+          required>
+      </div>
+
+
+      <!-- Etat -->
+      <div class="form-group">
+        <label>Etat</label>
+
+        <select 
+          name="etat"
+          [(ngModel)]="produit.etat">
+
+          <option value="">-- Choisir l'état --</option>
+          <option value="disponible">Disponible</option>
+          <option value="indisponible">Indisponible</option>
+
+        </select>
+      </div>
+
+
+      <!-- Catégorie -->
+      <div class="form-group">
+        <label>Catégorie</label>
+
+        <input
+          type="number"
+          name="categorie_id"
+          [(ngModel)]="produit.categorie_id"
+          placeholder="ID catégorie">
+      </div>
+
+
+      <!-- Fournisseur -->
+      <div class="form-group">
+        <label>Fournisseur</label>
+
+        <input
+          type="number"
+          name="fournisseur_id"
+          [(ngModel)]="produit.fournisseur_id"
+          placeholder="ID fournisseur">
+      </div>
+
+
+      <!-- Image -->
+      <div class="form-group">
+        <label>Image</label>
+
+        <input
+          type="file"
+          name="image">
+      </div>
+
+
+      <!-- Boutons -->
+      <div class="actions">
+
+        <button 
+          type="submit"
+          class="btn-ajouter">
+          Ajouter le produit
+        </button>
+
+
+        <button
+          type="button"
+          class="btn-annuler"
+          routerLink="/ListeProduits">
+          Annuler
+        </button>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
